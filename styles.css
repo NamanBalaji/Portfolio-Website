@@ -1,0 +1,428 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Nunito';
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+p{
+    font-size: 1.6rem;
+}
+img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+section{
+    padding: 5rem 0;
+
+}
+
+/*body{
+    background-color: mediumseagreen;
+}*/
+
+header{
+    width: 100%;
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.container{
+  width: 100%;
+  max-width: 98rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+.nav-brand{
+    width: 2rem;
+}
+.menu-icons i{
+    font-size: 3.5rem;
+    color: #fafafa;
+    cursor: pointer;
+}
+.close i{
+    color: #35ca28;
+}
+
+.nav-list{
+    width: 25rem;
+    height: 100vh;
+    background-color: rgb(126, 128, 236);
+    position: fixed;
+    top: 0;
+    right: -26rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    transition: all 650ms ease-in-out;
+}
+.nav-list.active{
+    right: 0;
+}
+.close{
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+}
+.nav-item{
+    margin: 1.5rem 0;
+}
+.nav-link{
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, .7);
+}
+.hero{
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(135deg, rgba(5, 116, 61, 0.842) 0%, rgba(52, 206, 85, 0.76) 100%),
+    url(images/59355f751c1e3698cc6360b1a7390094.jpg) center no-repeat fixed;
+    background-size: cover;
+    position: relative;
+}
+.hero::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 4.7rem;
+    background: url("images/wave-small.png") center no-repeat;
+    background-size: cover;
+}
+.main-message{
+    width: 100%;
+    max-width: 50rem;
+    color: #fafafa;
+    text-transform: uppercase;
+    transform: translateY(20%);
+}
+.main-message h2{
+    font-size: 2rem;
+    color: black;
+    margin: 1rem 0;
+}
+.main-message h1{
+    font-size: 6rem;
+}
+.main-message p{
+    font-size: 2rem;
+    margin-bottom: 0S;
+}
+
+ion-icon{
+    color: rgba(197, 216, 25, 0.979);
+    display: inline-block;
+    margin-top: 2rem;
+    display: inline-block;
+    font-size: 5rem;
+    
+}
+.tp-icon{
+    color: rgba(197, 216, 25, 0.979);
+    display: inline-block;
+    margin: 2rem 1rem;
+    display: inline-block;
+    font-size: 5rem;
+}
+
+.btn{
+    background-color: rgb(20, 63, 56);
+    border: none;
+    border-radius: 45%;
+    font-size: 1.5rem;
+    color: cornsilk;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: background-color 650ms;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    
+}
+.btn:hover{
+    background-color: rgb(37, 115, 151);
+}
+.projects{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(5, 116, 61, 0.842) 0%, rgba(52, 206, 85, 0.76) 100%),
+    url(images/59355f751c1e3698cc6360b1a7390094.jpg) center no-repeat fixed;
+    background-size: cover;
+    position: relative;
+    }
+.projects::before{
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    top: -3px;
+    height: 4.7rem;
+    background: url(images/wave-small-reversed.png) center no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+.title-heading{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+    margin-top: 25%;
+    color: rgba(0, 0, 0, .7);
+}
+.title-heading h1{
+    font-size: 6rem;
+    margin: .5rem 0 1rem;
+}
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap: 2.5rem;
+}
+.project-grid-item{
+    height: 50rem;
+    padding: 5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+}
+.project-grid-item::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(135deg, rgba(137, 103, 200, 0.842) 0%, rgba(122, 100, 223, 0.76) 100%);
+    z-index: -1;
+}
+
+.project-grid-item h1{
+    font-size: 3rem;
+}
+.project-grid-item h3{
+    font-size: 2rem;
+    color: black;
+}
+.sort{
+    background: url("images/MergeSort.jpg") center no-repeat;
+}
+.shop{
+    background: url("images/e-commerce-link-building-760x400.png") center no-repeat; 
+}
+.blog{
+    background: url("images/How-blogs-changed-the-world-1024x585.jpg") center no-repeat;
+}
+.project-grid-item i{
+    font-size: 3rem;
+    color: crimson;
+}
+.about-info{
+    padding: 0,1.5rem;
+    margin-bottom: 2rem;
+
+}
+.about-text{
+    display: inline-block;
+    width: 66%;
+    margin-left: 2rem;
+    font-size: 2.5rem;
+    
+}
+.about-img{
+    width: 20rem;
+    height: 20rem;
+    border: 3px solid mediumaquamarine;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2rem;
+}
+.about-skills h1{
+    text-align: center;
+    color: black;
+    padding: 1rem;
+    position: relative;
+    font-size: 4rem;
+}
+.about-skills h1::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 100px;
+    background-color: #2ecc71;
+}
+.skills{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-gap: 1rem;
+    padding: 1rem 80px;
+    font-size: 1.2rem;
+}
+.image{
+    width: 90px;
+    height: 90px;
+    position: relative;
+    border-radius: 45px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.skill-icon{
+    width: 50px;
+}
+.skill-box{
+    padding: 1rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.skill-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: black;
+    font-size: 2rem;
+}
+
+.footer{
+    background: #111;
+    text-align: center;
+    padding: 2rem 0;
+}
+.footer p{
+    font-size: 2.5rem;
+    color: lavenderblush;
+    margin-top: 4rem;
+}
+.last{
+    font-size: 4rem;
+    color: lavenderblush;
+    display: inline-block;
+    font-size: 3rem;
+    margin-top: 0;
+}
+.mail-icon{
+    display: inline-block;
+    font-size: 5rem;
+    margin-top: 0;
+    color: lavenderblush;
+    margin-bottom: 0;
+}
+.social-list{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    padding: 0;
+}
+.social-list-item{
+    margin: 0 .5rem
+}
+
+@media screen and (min-width: 350px){
+    .main-message{
+        transform: translateY(40%);
+    }
+}
+@media screen and (min-width: 470px){
+   .hero::before{
+       height: 9.4rem;
+       background: url("images/wave-medium.png");
+       background-size: cover;
+    
+   }
+   .projects::before{
+    height: 9.4rem;
+    background: url("images/wave-medium-reversed.png");
+    background-size: cover;
+   }
+}
+@media screen and (min-width: 700px){
+    header{
+        height: 8rem;
+    }
+    .nav-brand{
+        width: 3.5rem;
+    }
+    .nav-list{
+        width: initial;
+        height: initial;
+        background-color: transparent;
+        position: initial;
+        top: initial;
+        right: initial;
+        display: flex;
+        flex-direction: row;
+        transition: initial;
+    }
+    .menu-icons{
+        display: none;
+    }
+    .nav-item{
+        margin: 1rem 2.5rem;
+    }
+    .nav-link{
+        color: ivory;
+        position: relative;
+        font-size: 2rem;
+    }
+    .main-message{
+        transform: translateY(70%);
+}
+.th-lg{
+    margin-top: 5rem;
+}
+
+}
+@media screen and (min-width: 950px){
+.hero::before{
+    height: 22.7rem;
+    background: url("images/wave-large.png");
+    background-size: cover;
+ 
+}
+.projects::before{
+ height: 22.7rem;
+ background: url("images/wave-large-reversed.png");
+ background-size: cover;
+}
+}

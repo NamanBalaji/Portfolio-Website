@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distributed Systems on Naman Balaji</title>
+    <link>https://NamanBalaji.github.io/tags/distributed-systems/</link>
+    <description>Recent content in Distributed Systems on Naman Balaji</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Jun 2022 16:48:06 +0530</lastBuildDate>
+    
+	<atom:link href="https://NamanBalaji.github.io/tags/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Map Reduce</title>
+      <link>https://NamanBalaji.github.io/blogs/map-reduce/</link>
+      <pubDate>Sat, 18 Jun 2022 16:48:06 +0530</pubDate>
+      
+      <guid>https://NamanBalaji.github.io/blogs/map-reduce/</guid>
+      <description>MapReduce: Simplified Data Processing on Large Clusters MapReduce is a programming model and an associated implementation for processing and generating large data sets. Users specify a map function that processes a key/value pair to generate a set of intermediate key/value pairs, and a reduce function that merges all intermediate values associated with the same intermediate key.
+Programs written in this functional style are automatically parallelised and executed on a large cluster of commodity machines.</description>
+    </item>
+    
+  </channel>
+</rss>

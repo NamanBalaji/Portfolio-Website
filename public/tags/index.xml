@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Naman Balaji</title>
+    <link>https://NamanBalaji.github.io/tags/</link>
+    <description>Recent content in Tags on Naman Balaji</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Jun 2022 16:48:06 +0530</lastBuildDate>
+    
+	<atom:link href="https://NamanBalaji.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>6.824</title>
+      <link>https://NamanBalaji.github.io/tags/6.824/</link>
+      <pubDate>Sat, 18 Jun 2022 16:48:06 +0530</pubDate>
+      
+      <guid>https://NamanBalaji.github.io/tags/6.824/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed Systems</title>
+      <link>https://NamanBalaji.github.io/tags/distributed-systems/</link>
+      <pubDate>Sat, 18 Jun 2022 16:48:06 +0530</pubDate>
+      
+      <guid>https://NamanBalaji.github.io/tags/distributed-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Map-Reduce</title>
+      <link>https://NamanBalaji.github.io/tags/map-reduce/</link>
+      <pubDate>Sat, 18 Jun 2022 16:48:06 +0530</pubDate>
+      
+      <guid>https://NamanBalaji.github.io/tags/map-reduce/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

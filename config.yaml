@@ -5,7 +5,7 @@ theme: "hugo-profile"
 canonifyurls: true
 
 Paginate : 3
-disqusShortname : gurusabarish
+disqusShortname : namanbalaji
 googleAnalytics : G-DWJJVE27WD
 
 markup:

@@ -29,18 +29,16 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-<meta property="og:title" content="Map Reduce" />
-<meta property="og:description" content="MapReduce: Simplified Data Processing on Large Clusters MapReduce is a programming model and an associated implementation for processing and generating large data sets. Users specify a map function that processes a key/value pair to generate a set of intermediate key/value pairs, and a reduce function that merges all intermediate values associated with the same intermediate key.
-Programs written in this functional style are automatically parallelised and executed on a large cluster of commodity machines." />
+<meta property="og:title" content="GFS" />
+<meta property="og:description" content="The Google File System (2003) - Paper Summary  Why are we reading the GFS paper?  Incorporates many of the recurring themes in Distributed Systems: parallel performance, fault tolerance, replication, consistency. Successful real-world design. BigTable, MapReduce built on top of GFS. Well-written systems paper - details from the application to the network.  What were the main contributions of the GFS paper to the industry in 2003?  Despite writing about basic ideas of distribution, sharding, fault-tolerance, the use of GFS was huge in scale (larger scale than most academic systems)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://namanbalaji.github.io/Portfolio-Website/blogs/map-reduce/" />
-<meta property="article:published_time" content="2022-06-18T16:48:06+05:30" />
-<meta property="article:modified_time" content="2022-06-18T16:48:06+05:30" /><meta property="og:site_name" content="Naman Balaji" />
+<meta property="og:url" content="https://namanbalaji.github.io/Portfolio-Website/blogs/gfs/" />
+<meta property="article:published_time" content="2022-06-19T01:24:34+05:30" />
+<meta property="article:modified_time" content="2022-06-19T01:24:34+05:30" /><meta property="og:site_name" content="Naman Balaji" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Map Reduce"/>
-<meta name="twitter:description" content="MapReduce: Simplified Data Processing on Large Clusters MapReduce is a programming model and an associated implementation for processing and generating large data sets. Users specify a map function that processes a key/value pair to generate a set of intermediate key/value pairs, and a reduce function that merges all intermediate values associated with the same intermediate key.
-Programs written in this functional style are automatically parallelised and executed on a large cluster of commodity machines."/>
+<meta name="twitter:title" content="GFS"/>
+<meta name="twitter:description" content="The Google File System (2003) - Paper Summary  Why are we reading the GFS paper?  Incorporates many of the recurring themes in Distributed Systems: parallel performance, fault tolerance, replication, consistency. Successful real-world design. BigTable, MapReduce built on top of GFS. Well-written systems paper - details from the application to the network.  What were the main contributions of the GFS paper to the industry in 2003?  Despite writing about basic ideas of distribution, sharding, fault-tolerance, the use of GFS was huge in scale (larger scale than most academic systems)."/>
 
 
 
@@ -86,7 +84,7 @@ Programs written in this functional style are automatically parallelised and exe
 <script defer src="https://namanbalaji.github.io/Portfolio-Website/fontawesome-5/all-5.15.4.js"></script>
 
   <title>
-Map Reduce | Naman Balaji
+GFS | Naman Balaji
 
   </title>
 </head>
@@ -214,125 +212,114 @@ Map Reduce | Naman Balaji
       <div class="col-sm-12 col-md-12 col-lg-9">
         <div class="pr-lg-4">
           <div class="title mb-5">
-            <h1 class="text-center mb-4">Map Reduce</h1>
+            <h1 class="text-center mb-4">GFS</h1>
             <div class="text-center">
                
               <small>|</small>
-              Jun 18, 2022
+              Jun 19, 2022
             </div>
           </div>
           
           <article class="page-content  p-2">
-          <h1 id="mapreduce-simplified-data-processing-on-large-clustershttpsstaticgoogleusercontentcommediaresearchgooglecomenarchivemapreduce-osdi04pdf"><a href="https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf">MapReduce: Simplified Data Processing on Large Clusters</a></h1>
-<p>MapReduce is a programming model and an associated implementation for processing and generating large data sets. Users specify a <em>map</em> function that processes a key/value pair to generate a set of intermediate key/value pairs, and a <em>reduce</em> function that merges all intermediate values associated with the same intermediate key.</p>
-<p>Programs written in this functional style are automatically parallelised and executed on a large cluster of commodity machines. The run-time system takes care of the details of partitioning the input data, scheduling the program&rsquo;s execution across a set of machines, handling machine failures, and managing the required inter-machine communication. This allows programmers without any experience with parallel and distributed systems to easily utilise the resources of a large distributed system.</p>
-<h2 id="what-is-map-reduce">What is Map-Reduce?</h2>
-<p>MapReduce is an interface that enables automatic parallelization and distribution of <strong>large-scale computation</strong>, while <strong>abstracting</strong> over **“the messy details of parallelization, fault-tolerance, data distribution and load balancing” **.</p>
-<p>As the name suggests, MapReduce is inspired by map and reduce functions present in many functional languages, which allows them to parallelize large computation easily and use re-execution as a key mechanism to deal with failures.
-The abstraction is inspired by the <em>map</em> and <em>reduce</em> primitives present in Lisp and many other functional languages. Map and reduce operations allows easy parallelisation at the same time that re-execution serves as the primary mechanism for fault-tolerance.</p>
-<h2 id="what-were-the-problems-mapreduce-was-trying-to-solve">What were the problems MapReduce was trying to solve?</h2>
-<p>Before MapReduce, Google has implemented hundreds of computations that process a large amount of raw data to compute various derived data.</p>
-<p>They found that most of these computations were conceptually straightforward. However, the difficulty comes in the form of large input data whose computation has to be distributed across up to thousands of machines to complete in a reasonable time. Some of these issues that arise with distributed computation are:</p>
+          <h1 id="the-google-file-system-2003---paper-summary-httpsstaticgoogleusercontentcommediaresearchgooglecomenarchivegfs-sosp2003pdf"><a href="https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf">The Google File System (2003) - Paper Summary </a></h1>
+<h2 id="why-are-we-reading-the-gfs-paper">Why are we reading the GFS paper?</h2>
 <ol>
-<li>How to parallelize the computation</li>
-<li>How to distribute the large input/output data</li>
-<li>How to handle failures</li>
+<li>Incorporates many of the recurring themes in Distributed Systems: parallel performance, fault tolerance, replication, consistency.</li>
+<li>Successful real-world design. BigTable, MapReduce built on top of GFS.</li>
+<li>Well-written systems paper - details from the application to the network.</li>
 </ol>
-<p>The main goal of MapReduce is hence to provide an easy-to-us interface even for programmers without experience in distributed and parallel systems by abstracting all the details of parallelization, fault-tolerance, data distribution, and load balancing away.</p>
-<p>A benefit that comes with the main goal is that it becomes easier to improve the performance of a computation process by simply adding new machines to the cluster because MapReduce automatically handles all the abstractions for programmers.</p>
-<h2 id="architecture">Architecture</h2>
-<p>We can express a computation using MapReduce in the form of 2 user-defined functions: Map and Reduce.</p>
-<p><code>map :=(k1,v1):= (k1, v1):=(k1,v1) —&gt; list(k2,v2)list(k2, v2)list(k2,v2)</code>
- </p>
-<p><code>reduce :=(k2,list(v2)):= (k2, list(v2)):=(k2,list(v2)) —&gt; list(v3)list(v3)list(v3)</code></p>
-<p><strong>Map:</strong> Takes a data input (key, value) pair and produces a set of intermediate (key, value) pairs. The MapReduce library groups together all intermediate values associated with the same intermediate key I and passes them to the Reduce function.</p>
-<p><strong>Reduce:</strong> Accepts an intermediate key and a set of values for that key. It merges these values to form a possibly smaller set of values. Note that the intermediate values are supplied to the reduce function via an iterator. This allows us to handle lists of values that are too large to fit in memory.</p>
-<p>Note that in practical use cases, the output from the Reduce operations is often fed as input into another MapReduce job, or possibly another distributed application.</p>
-<h3 id="overall-execution-of-mapreduce">Overall Execution of MapReduce</h3>
-<p><img src="https://namanbalaji.github.io/Portfolio-Website/images/blog/mapreduce.png" alt=""></p>
-<p>Figure 1: High level overview of an execution of a MapReduce job. Adapted from [1].</p>
-<p>Note that the input data is partitioned into a set of MMM splits. These splits can then be processed in parallel by different machines. The Reduce invocations are also partitioned by the intermediate key space into RRR splits using a user-defined partitioning function. Both MMM and RRR are specified by the user.</p>
-<p>Figure 1 shows the overall flow of a MapReduce job. The following sequence of actions will occur when a user calls a MapReduce function (the numbered labels in Figure 1 correspond to the numbers in the list below):</p>
+<h3 id="what-were-the-main-contributions-of-the-gfs-paper-to-the-industry-in-2003">What were the main contributions of the GFS paper to the industry in 2003?</h3>
+<ul>
+<li>Despite writing about basic ideas of distribution, sharding, fault-tolerance, the use of GFS was huge in scale (larger scale than most academic systems).</li>
+<li>Used in industry, and shared about Google’s real-world experience.</li>
+<li>Demonstrated successful use of weak consistency.</li>
+<li>Demonstrated successful use of single master.</li>
+</ul>
+<h3 id="the-common-trade-offs-of-distributed-systems">The common trade-offs of Distributed Systems</h3>
+<p>Here, we present a common tradeoff pattern for distributed systems:</p>
+<ul>
+<li>To achieve high performance, a common strategy is to shard data over many servers.</li>
+<li>Having many servers lead to constant faults.</li>
+<li>To implement fault tolerance, one strategy is to make use of replication.</li>
+<li>With different replica of the same data, however, potential inconsistencies between each replica will occur.</li>
+</ul>
+<p>On the other hand, better consistency usually implies low performance. In GFS, we will see that consistency is traded off for simpler design, greater performance, and high availability.</p>
+<h2 id="what-is-gfs">What is GFS?</h2>
+<p>Google File System (GFS) is a scalable distributed file system for large distributed data-intensive applications. It provides fault tolerance even when running on inexpensive commodity hardware, and delivers high average performance to a large number of clients. GFS is widely deployed within Google as a storage platform for applications that require the generation and processing of large data sets.</p>
+<h3 id="what-were-the-problems-gfs-was-trying-to-solve">What were the problems GFS was trying to solve?</h3>
+<p>Google needed a large-scale and high-performant unified storage system for many of its internal services such as MapReduce, web crawler services. In particular, this storage system must:</p>
+<ul>
+<li>Be global. Any client can access (read/write) any file. This allows for sharing of data among different applications.</li>
+<li>Support automatic sharding of large files over multiple machines. This improves performance by allowing parallel processes on each file chunk and also deals with large files that cannot fit into a single disk.</li>
+<li>Support automatic recovery from failures.</li>
+<li>Be optimized for sequential access to huge files and for read and append operations which are the most common.</li>
+</ul>
+<p>In particular, the authors optimized GFS for high sustained bandwidth (target applications place a premium on processing data in bulk at a high rate), but not necessarily for low latency (GFS is typically used for internal services and is not client-facing).</p>
+<h2 id="the-big-picture-of-gfs-architecture">The big picture of GFS (Architecture)</h2>
+<p>GFS consists of a single master and multiple chunkservers and is accessed by multiple clients. Files are divided into fixed-sized chunks of 64MB. Each chunk has an immutable and globally unique chunk handler, which is assigned by the master at the time of chunk creation. By default, each file chunk is replicated on 3 different chunkservers.</p>
+<p><img src="https://namanbalaji.github.io/Portfolio-Website/images/blog/gfsArchitecture.png" alt=""></p>
+<p>Figure 1: High level overview of GFS Architecture. Adapted from [1].</p>
+<h3 id="single-master">Single Master</h3>
+<p>The master maintains all the file system metadata. This includes mapping from file to chunks, chunk locations, etc. The master also periodically sends HeartBeat messages to the chunkserver to give it instructions and collect its state (Figure 1).</p>
+<p><strong>Advantage of single master:</strong> Vastly simplify GFS design and the single master can make sophisticated chunk placement and replication decisions using global knowledge.</p>
+<p><strong>Possible disadvantages of single master:</strong></p>
+<ul>
+<li>Single point of failure. Have to regularly checkpoint critical metadata into non-volatile storage.</li>
+<li>Could be a point of performance bottleneck. Must minimize master involvement in reads and writes.</li>
+</ul>
+<p>With regards to Point 2, a client never reads and writes file data through the master. As you can see in Figure 1, a client asks the master which chunkserver it should contact, caches this information for a limited time, and interacts with the chunkserver directly for read and write operations.</p>
+<h3 id="metadata">Metadata</h3>
+<p>Metadata is stored in the master in-memory. This allows master operations to be very fast and also allows the master to efficiently perform periodic scans through its entire state in the background. The periodic scanning is used to implement chunk garbage collection, chunk migration etc.</p>
+<p>The master stores 3 major types of metadata:</p>
 <ol>
-<li>Input files are split into MMM pieces typically 16-64MB (Google uses GPS to partition input data automatically) by the user program. It then starts up many copies of the program on a cluster of machines.</li>
-<li>One of the copies of the program is special – the master. The rest are workers that are assigned work by the master. There are M map tasks and R reduce tasks to assign. The master picks idle workers and assigns each one a map task or a reduce task.
-<ul>
-<li>Note that in 2004, network bandwidth is a huge bottleneck and the authors wanted to minimise passing data through the network. As described in the Section of Locality Optimisation, the Master tends to schedule map jobs to machines containing the input data (thus, the map jobs are usually run locally).</li>
-</ul>
-</li>
-<li>A worker who is assigned a map task reads the contents of the corresponding input split. It parses key/value pairs out of the input data and passes each pair to the user-defined Map function. The intermediate key/value pairs produced by the Map function are buffered in the memory of the map worker.</li>
-<li>Periodically, the buffered pairs are written to local disk, partitioned into R regions by the partitioning function. The locations of these buffered pairs on the local disk are passed back to the master, who is responsible for forwarding these locations to the reduce workers.
-<ul>
-<li>Note that reduce jobs only begin after all map jobs are completed (refer to the FAQ Section).</li>
-</ul>
-</li>
-<li>When a reduce worker is notified by the master about these locations, it uses remote procedure calls to read the buffered data from the local disks of the map workers. When a reduce worker has read all intermediate data, it sorts it by the intermediate keys so that all occurrences of the same key are grouped together. The sorting is needed because typically many different keys map to the same reduce task. If the amount of intermediate data is too large to fit in memory, an external sort is used.</li>
-<li>The reduce worker iterates over the sorted intermediate data and for each unique intermediate key encountered, it passes the key and the corresponding set of intermediate values to the user’s Reduce function. The output of the Reduce function is appended to a final output file for this reduce partition.
-<ul>
-<li>After all map jobs are completed, reduce worker will pull the intermediate data (from a partition) from the local disk of all map workers.</li>
-<li>Reduce workers will sort the intermediate keys.</li>
-<li>Pass the intermediate keys in order to Reduce function.</li>
-<li>Output of Reduce function is appended to a final output file.</li>
-</ul>
-</li>
-<li>When all map tasks and reduce tasks have been completed, the master wakes up the user program. At this point, the MapReduce call in the user program returns back to the user code.</li>
+<li>File and chunks namespaces</li>
+<li>Filename —&gt; array of chunk handlers</li>
+<li>Chunk handler —&gt; list of chunk servers, primary chunk server, chunk version number</li>
 </ol>
-<h3 id="master-data-structures">Master data structures</h3>
-<p>For each map task and reduce task, master stores the state (<em>idle</em>, <em>in-progress</em>, or <em>completed</em>) and the identity of the worker machine.</p>
-<p>For each completed map task, the master stores the locations and sizes of the <em>R</em> intermediate file regions produced by the map task. Updates to this location and size information are received as map tasks are compelted. The information is pushed incrementally to workers that have <em>in-progress</em> reduce tasks.</p>
-<h2 id="fault-tolerance">Fault tolerance</h2>
-<h3 id="worker-failure">Worker failure</h3>
-<p>The master pings every worker periodically. If no response is received from a worker in a certain amount of time, the master marks the worker as failed. Any map tasks completed by the worker are reset back to their initial <em>idle</em> state, and therefore  become eligible for scheduling on other workers. Similarly, any map task or reduce task in progress on a failed worker is also reset to <em>idle</em> and becomes eligible for rescheduling.</p>
-<p>Completed map tasks are re-executed on failure because their output is stored on the local disks of the failed machine and is therefore inaccessible. Completed reduce tass do not need to be re-executed since their output is stored in a global file system.</p>
-<p>When a map task is executed first by worker <em>A</em>, and later executed by worker <em>B</em> (because <em>A</em> failed), all workers executing reduce tasks are notified of the re-execution. Any reduce task that has not already read the data from worker <em>A</em> will read the data from worker <em>B</em>.</p>
-<p>The MapReduce master simply re-executes the work done by unreachable worker machines and continues to make forward progress.</p>
-<h3 id="master-failure">Master failure</h3>
-<p>It&rsquo;s easy to make the master write periodic checkpoints of the master data structures. If the master task dies, a new copy can be started from the last checkpointed state. Current implementation aborts the MapReduce computation if the master fails.</p>
-<h2 id="refinement">Refinement</h2>
-<h3 id="partitioning-function">Partitioning function</h3>
-<p>Users of MapReduce specify the number of reduce task/output files that they desire (<em>R</em>). A default partitioning function is provided that uses hashing (peg: <code>hash(key) mod R</code>), which tends to result in fairly well-balanced partitions. In some cases, it is useful to partition data by some other function of the key, for example sometimes the output keys are URLs, and is convenient to have a single host end up in the same output file. A partitioning function can be provided to MapReduce, for example <code>hash(Hostname(urlkey)) mod R</code>.</p>
-<h3 id="ordering-guarantees">Ordering guarantees</h3>
-<p>Within a given partition, the intermediate key/value pairs are guaranteed to be processed in increasing key order, which makes it easy to generate a sorted output file per partition.</p>
-<h3 id="combiner-function">Combiner function</h3>
-<p>MapReduce allows the user to specify a <em>Combiner</em> function that does partial merging of the data before it is sent over the network.</p>
-<p>The <em>Combiner</em> function is executed on each machine that performs a map task. The difference between a reduce function and a combiner function is how the MapReduce library handles the output of the function. The output of a reduce function is written to the final output file. The output of a combiner function is written to an intermediate field that will be sent to a reduce task.</p>
-<h2 id="usage-exmples">Usage exmples</h2>
-<ul>
-<li>Distributed Grep: The map function emits a line if it matches a supplied pattern. The reduce function is an identity function that just copies the supplied intermediate data to the output.</li>
-<li>Count of URL access frequency: The map function processes logs of a web page requests and outputs <code>&lt;URL, 1&gt;</code>. The reduce function adds together all values for the same URL and emits a <code>&lt;URL, total count&gt;</code> pair.</li>
-<li>Distributed sort: The map functions extracts the key from each record, and emits a <code>&lt;key, record&gt;</code> pair. The reduce function emits all pairs unchanged.</li>
-</ul>
-<h2 id="when-is-mapreduce-not-suitable">When is MapReduce not suitable?</h2>
+<p>Note that the first 2 types of metadata are kept persistent by logging mutations to an operation log stored on the master’s local disk, and replicated periodically to remote machines. However, the master does not store the chunk location information persistently. Instead, it asks each chunkserver about its chunks at master startup and whenever a chunkserver joins the cluster. This is because the chunkservers are the authoritative source of data for chunk location and primary status information.</p>
+<h3 id="consistency-guarantees-by-gfs">Consistency Guarantees by GFS</h3>
+<p>GFS provides a relaxed consistency model, which works well for Google’s highly distributed application but remains relatively simple and efficient to implement. Here, the authors describe two states of a file region (Table 1):</p>
 <ol>
-<li>When you need real-time processing, MapReduce may not be the fastest option.</li>
-<li>It’s not always very easy to implement each and everything into a sequence of Map and Reduce function.</li>
-<li>When your intermediate processes need to talk to each other(MapReduce jobs are run in isolation).</li>
-<li>When you need to handle streaming data.</li>
-<li>When you can get the desired result in a local machine. “It’s obviously less painful to configure and manage a           standalone system as compared to a distributed system.”</li>
+<li>A file region is consistent if all clients will always see the same data, despite which replica they read from.</li>
+<li>A file region is defined if after a mutation it is consistent and the clients will see what the mutation writes in its entirety (i.e. the mutation is written without being interleaved by other data from other mutations).</li>
 </ol>
-<h2 id="what-are-the-key-lessons-from-mapreduce">What are the key lessons from MapReduce?</h2>
+<p><img src="https://namanbalaji.github.io/Portfolio-Website/images/blog/gfsConsistency.png" alt=""></p>
+<p>Table 1: File Region State after Mutation. Adapted from [1].</p>
+<p>When a non-concurrent mutation succeeds (all replicas report success), the file region is defined and thus, consistent. However, in the event of concurrent successful mutations, the file region is consistent but may not be defined: all clients see the same data but typically it consists of interleaved fragments from multiple mutations. A failed mutation (at least 1 replica does not report success) indicates that the file region is not consistent and thus, not defined. In such events of failure, the GFS client simply re-runs the mutation.</p>
+<h4 id="atomic-operations">Atomic operations</h4>
+<p>GFS provides some atomic guarantees. File namespace mutation (e.g. file creation) is atomic and is handled exclusively by the master. Namespace locking guarantees atomicity, and the master’s operation log defines a global total order of these operations.</p>
+<p>In contrast to regular writes or append operation, GFS provides a record append operation that guarantees that the data to be appended is performed at least once atomically even in the presence of concurrent mutations, but at an offset of GFS choosing. GFS will return the offset of the appended data to the client.</p>
+<h4 id="chunk-replicas">Chunk replicas</h4>
+<p>To ensure that after a sequence of successful mutations, the file region contains the data written by the last mutation, GFS i) applies mutation to chunk replicas in the same order by appointing a primary replica and ii) uses chunk version numbers to detect any replica that has become stale because it has missed mutations while its chunkserver was down.</p>
+<p>Stale replicas will never be involved in a mutation or given to clients asking the master for chunk locations. They are garbage collected at the earliest opportunity.</p>
+<h2 id="what-are-the-key-lessons-learned-from-gfs">What are the key lessons learned from GFS?</h2>
 <ol>
-<li>Restricting the programming model makes it easier to parallelize and distribute computations and to even make such computation fault tolerance.
-<ul>
-<li>E.g. For MapReduce, we restrict the model to accept key/value pairs, and the output also is key/value pair.</li>
-</ul>
-</li>
-<li>Redundant executions can be used to reduce the impact of slow machines (stragglers) and to handle machine failures and data loss.
-<ul>
-<li>In the event of worker failures, MapReduce master simply re-executes the work done by the unreachable worker and continues to make forward progress.</li>
-<li>Refer to Backup Tasks in Section 3.6 [1] on how MapReduce tackles the issue of “straggler”: a machine that takes an unusually long time to complete one of the last few map or reduce tasks, thus prolong the total time needed. (tldr: the master schedules backup executions on the remaining in-progress tasks when the MapReduce operation is close to completion)</li>
-</ul>
-</li>
+<li>Weak consistency may be viable even in production, given that there exists some form of application-level checks.</li>
 </ol>
-<h2 id="faq">FAQ</h2>
-<h5 id="1-does-the-shuffle-process-in-reduce-workers-pulling-of-intermediate-data-from-all-map-workers-happen-concurrently-with-reduce-operations">1. Does the shuffle process in Reduce workers (pulling of intermediate data from all map workers) happen concurrently with reduce operations?</h5>
-<p> 
-No, it doesn’t. The reduce worker will alternate between shuffling data from map workers, and passing the intermediate data to sort and Reduce function.</p>
-<h5 id="2-do-the-reduce-operations-occur-concurrently-with-map-operations-no-you-can-think-of-the-map-and-reduce-operations-like-occurring-in-batches-the-reduce-workers-have-to-wait-for-all-map-jobs-to-be-completed-to-begin-working-on-shuffling-sorting-and-passing-data-into-reduce-functions">2. Do the reduce operations occur concurrently with map operations? No. You can think of the map and reduce operations like occurring in batches. The reduce workers have to wait for all map jobs to be completed to begin working on shuffling, sorting and passing data into Reduce functions.</h5>
-<p> 
-This is because MapReduce guarantees ordering, i.e. within a given partition, the intermediate key/value pairs are processed in increasing key order (refer to Section 4.2 of [1]).
-In other words, in order for reduce operations to begin, the entire partition must be collected first, then sorted, before the calls to Reduce functions can be made.
-The only way to be sure we have the entire partition is to wait for all map operations to be completed so that all input slices have been processed.</p>
+<blockquote>
+<p>GFS clients should rely on record append, instead of overwrites because of the atomic guarantees by record append. Appending is also far more efficient and more resilient to application failures than random writes. Record append’s append-at-least once semantics preserves each writer’s output. Readers can deal with the occasional padding and duplicate records by adding extra information such as checksums and unique identifiers to filter out duplicate records.</p>
+</blockquote>
+<blockquote>
+<p>GFS clients also perform checkpointing by atomically renaming the file to a permanent name after writing all data, or checkpointing how much has been successfully written. Checkpoints can also include application-level checksums.</p>
+</blockquote>
+<ol start="2">
+<li>Global cluster file system as a universal infrastructure is useful for many data-intensive applications.</li>
+<li>A single master may be viable if we separate the metadata in the master from the storage in chunkservers, and minimize client calls to master.</li>
+<li>We can make use of file chunking for parallel throughput.</li>
+<li>Using a primary replica chunkserver to sequence writes to all replicas.</li>
+<li>Leases to prevent split-brain chunkserver partitions.</li>
+</ol>
+<p>However, there are some shortcomings or not so great areas of GFS from retrospect:</p>
+<ol>
+<li>Single master performance may not be so great. In restropect, Google started to witness problems when the number of files increased significantly over the years</li>
+</ol>
+<blockquote>
+<p>Going from a few hundred terabytes up to petabytes, and then up to tens of petabytes… that really required a proportionate increase in the amount of metadata the master had to maintain. Also, operations such as scanning the metadata to look for recoveries all scaled linearly with the volume of data. So the amount of work required of the master grew substantially. The amount of storage needed to retain all that information grew as well. [3]</p>
+</blockquote>
+<ol start="2">
+<li>There was a lack of automatic fail-over to master replica. Engineers used to have to manually perform load checkpoint of master state and perform failover. This is slow and unproductive.</li>
+<li>Consistency model may be too relaxed [3].</li>
+</ol>
 
           </article>
         </div>
@@ -347,35 +334,25 @@ The only way to be sure we have the entire partition is to wait for all map oper
               <div class="toc-content">
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-is-map-reduce">What is Map-Reduce?</a></li>
-    <li><a href="#what-were-the-problems-mapreduce-was-trying-to-solve">What were the problems MapReduce was trying to solve?</a></li>
-    <li><a href="#architecture">Architecture</a>
+    <li><a href="#why-are-we-reading-the-gfs-paper">Why are we reading the GFS paper?</a>
       <ul>
-        <li><a href="#overall-execution-of-mapreduce">Overall Execution of MapReduce</a></li>
-        <li><a href="#master-data-structures">Master data structures</a></li>
+        <li><a href="#what-were-the-main-contributions-of-the-gfs-paper-to-the-industry-in-2003">What were the main contributions of the GFS paper to the industry in 2003?</a></li>
+        <li><a href="#the-common-trade-offs-of-distributed-systems">The common trade-offs of Distributed Systems</a></li>
       </ul>
     </li>
-    <li><a href="#fault-tolerance">Fault tolerance</a>
+    <li><a href="#what-is-gfs">What is GFS?</a>
       <ul>
-        <li><a href="#worker-failure">Worker failure</a></li>
-        <li><a href="#master-failure">Master failure</a></li>
+        <li><a href="#what-were-the-problems-gfs-was-trying-to-solve">What were the problems GFS was trying to solve?</a></li>
       </ul>
     </li>
-    <li><a href="#refinement">Refinement</a>
+    <li><a href="#the-big-picture-of-gfs-architecture">The big picture of GFS (Architecture)</a>
       <ul>
-        <li><a href="#partitioning-function">Partitioning function</a></li>
-        <li><a href="#ordering-guarantees">Ordering guarantees</a></li>
-        <li><a href="#combiner-function">Combiner function</a></li>
+        <li><a href="#single-master">Single Master</a></li>
+        <li><a href="#metadata">Metadata</a></li>
+        <li><a href="#consistency-guarantees-by-gfs">Consistency Guarantees by GFS</a></li>
       </ul>
     </li>
-    <li><a href="#usage-exmples">Usage exmples</a></li>
-    <li><a href="#when-is-mapreduce-not-suitable">When is MapReduce not suitable?</a></li>
-    <li><a href="#what-are-the-key-lessons-from-mapreduce">What are the key lessons from MapReduce?</a></li>
-    <li><a href="#faq">FAQ</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
+    <li><a href="#what-are-the-key-lessons-learned-from-gfs">What are the key lessons learned from GFS?</a></li>
   </ul>
 </nav>
               </div>
@@ -387,7 +364,7 @@ The only way to be sure we have the entire partition is to wait for all map oper
             <h5>Tags</h5>
             <ul class="tags-ul list-unstyled list-inline">
               
-              <li class="list-inline-item"><a href="https://namanbalaji.github.io/Portfolio-Website/tags/map-reduce" target="_blank">Map-Reduce</a></li>
+              <li class="list-inline-item"><a href="https://namanbalaji.github.io/Portfolio-Website/tags/gfs" target="_blank">GFS</a></li>
               
               <li class="list-inline-item"><a href="https://namanbalaji.github.io/Portfolio-Website/tags/6.824" target="_blank">6.824</a></li>
               
@@ -403,17 +380,17 @@ The only way to be sure we have the entire partition is to wait for all map oper
             <div class="social-content">
               <ul class="list-inline">
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://twitter.com/share?text=Map%20Reduce&url=https%3a%2f%2fnamanbalaji.github.io%2fPortfolio-Website%2fblogs%2fmap-reduce%2f">
+                  <a target="_blank" href="https://twitter.com/share?text=GFS&url=https%3a%2f%2fnamanbalaji.github.io%2fPortfolio-Website%2fblogs%2fgfs%2f">
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://api.whatsapp.com/send?text=Map%20Reduce: https%3a%2f%2fnamanbalaji.github.io%2fPortfolio-Website%2fblogs%2fmap-reduce%2f">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=GFS: https%3a%2f%2fnamanbalaji.github.io%2fPortfolio-Website%2fblogs%2fgfs%2f">
                     <i class="fab fa-whatsapp"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="mailto:?subject=Map%20Reduce&amp;body=Check out this site https%3a%2f%2fnamanbalaji.github.io%2fPortfolio-Website%2fblogs%2fmap-reduce%2f">
+                  <a target="_blank" href="mailto:?subject=GFS&amp;body=Check out this site https%3a%2f%2fnamanbalaji.github.io%2fPortfolio-Website%2fblogs%2fgfs%2f">
                     <i class="fa fa-envelope"></i>
                   </a>
                 </li>

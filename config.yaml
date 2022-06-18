@@ -1,8 +1,8 @@
 baseURL: "https://namanbalaji.github.io/Portfolio-Website/"
 languageCode: "en-us"
-relativeURLs: "True"
 title: "Naman Balaji"
 theme: "hugo-profile"
+canonifyurls: true
 
 Paginate : 3
 disqusShortname : gurusabarish

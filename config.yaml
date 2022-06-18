@@ -43,7 +43,7 @@ params:
   title: "Naman Balaji"
   description: Text about my cool site
   # staticPath: ""  # The path to serve the static files from
-  favicon: "images/0.jpg"
+  favicon: "/images/0.jpg"
 
   theme:
     disableThemeToggle: false

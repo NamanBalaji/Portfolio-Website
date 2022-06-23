@@ -1,5 +1,5 @@
 ---
-title: "GFS"
+title: "GFS Paper Summary"
 date: 2022-06-19T01:24:34+05:30
 tags:
   - GFS

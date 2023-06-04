@@ -114,7 +114,7 @@ params:
     title: "About Me"
     #image: "/images/pfp.jpg"
     content: |-
-      I am software engineer working primarily with backend systems. I recnetly graduated from Manipal University with a bachelor's in Computer Science. 
+      I am software engineer at JustTrack working primarily with backend systems. I recnetly graduated from Manipal University with a bachelor's in Computer Science. 
       I am interseted in large scale distributed systems and the design and trade-off that goes into building such systems. While writing code my focus is on efficiency, modularity, mantainablity and robustness of the code.
       When I'm not coding I spend time playing/watching football, watching anime/movies or reading manga.
     skills:
@@ -128,16 +128,30 @@ params:
         - "Spring"
         - "MySQL"
         - "PostgreSQL"
+        - "DynamoDB"
         - "MongoDB"
-        - "React"
         - "Kubernets"
         - "Docker"
-        - "AWS"
+        - "AWS (ECS, SQS/SNS, S3, etc)"
 
   # Experience
   experience:
     enable: true
     items:
+      - job: "Junior Software Engineer"
+        company: "Justtrack"
+        companyUrl: "https://justtrack.io/"
+        date: "Oct 2022 - present"
+        featuredLink:
+          enable: false
+          name: "View the project"
+          url: "https://example.com"
+        content: |
+          - Developed an asynchronous microservice for resource creation and lookup that writes into a SQS every new entity it creates. Used redis and DynamoDB to process huge number to requests fast. Also developed a primary key decider along with a subscriber and a consumer that writes to a MySQL database to maintain consistency across the database and cache.
+          - Developed a cron server that performs scheduled ingestion of partner data and write it to a SNS topic where the data is consumed by lambda functions and written into a kinesis stream. Deployed this server to AWS Fargate.
+          - Responsible for maintaing and evolving some of the event driven systems with new requirements and parteners getting integrated into the system.
+          - Used golang for developing service and writing test. Made use of terraform to create infrastructure in the cloud. Used multiple AWS services like DynamoDB, SQS/SNS, S3 etc for creating data pipelines.
+
       - job: "Software Engineer Intern"
         company: "Zscaler"
         companyUrl: "https://www.zscaler.com/"
@@ -147,10 +161,9 @@ params:
           name: "View the project"
           url: "https://example.com"
         content: |
-          - Developed new APIs for batch processing of various entites that significantly reduced time spent on operational tasks.
-          - Optimized existing DB calls according to new requirements for better performance.
-          - Deployed services in various environments using AWS ECS and S3.
-          - Used technologies like Java Spring, Spring Boot, Hibernate and postgreSQL.
+          - Worked on developing and refactoring a RESTful service that acted as an interface between the main database and customer facing administration UI
+          - Reduced time spent on operational tasks by developing APIs to batch process entities and optimizing existing database calls.
+          - Used technologies like Java, Spring Boot, Hibernate and postgreSQL. Deployed services in various environments using AWS ECS and S3.
 
       - job: "Software Engineer Intern"
         company: "Argonaut"
@@ -162,11 +175,9 @@ params:
         info:
           enable: true
         content: |
-          - Developed a backend service using Golang, Kubernetes, and PostgreSQL for a fully managed PaaS that lets users automate DevOps and manage resources within AWS
-          - Developed a solution that allows the creation and deletion of cloud resources like cluster, node groups,
-            S3 buckets, etc with a single click by making use of Terraform and Kubernetes Jobs.
-          - Developed features like automated deployments and app install by leveraging Kube client SDK and Helm SDK.
-          - Wrote concurrent code for time-intensive tasks like resource creation and got execution time down by 80%.
+          - Developed a microservice using Golang, Kubernetes and PostgreSQL for a fully managed PaaS that lets users automate DevOps and manage resources within AWS
+          - Designed and developed a solution that allows creation and deletion of cloud resources like cluster, nodegroups, S3 buckets, etc with a single click by making use of Terraform and Kubernetes Jobs
+          - Developed features like automated deployments and app installs by leveraging Kube client SDK and Helm SDK
 
       - job: "Software Developer Intern"
         company: "Quickwork"
@@ -178,10 +189,8 @@ params:
           enable: false
           url: "https://example.com"
         content: |
-          - Developed APIs for a SaaS platform that provide users with workflow automation.
-          - Integrated 20+ third-party apps, abstracted their key functionalities, and created corresponding actions.
-          - Handled various types of authentication like Oauth, Basic Auth, and JWTs.
-          - Used technologies like Node.js and JavaScript
+          - Developed connectors and integrated thrid party APIs using Node.js and JavaScript to provide users with business workflow automation
+          - Developed callable webhooks that check for events to trigger worklows
 
   # Education
   education:
@@ -235,8 +244,8 @@ params:
   projects:
     enable: true
     items:
-      - title: Mise
-        content: Developed an in-memory key-value caching server that runs on top of HTTP. Added support for data structures like arrays, linked lists, trees and sorted sets. Implemented most of the common features and added options for persistance of data.
+      - title: Keynetic
+        content: Developed a causally consistent, always available, and partition tolerant system. Consistent hashing distributes the requests to multiple shards. Within shards, gossip is used to spread requests
         image: /images/project/mise.png
         # badges:
         #   - "Hugo"
@@ -244,7 +253,7 @@ params:
         #   - "Javascript"
         links:
           - icon: fab fa-github
-            url: https://github.com/NamanBalaji/mise
+            url: https://github.com/NamanBalaji/keynetic
 
       - title: Blockchain based Certificate Validation
         content: Developed an app that utilized blockchain tech to solve the problem of certificate forgery. Organizations can issue certificates to the candidates, that can be shared with employers who can verify them.

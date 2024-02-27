@@ -114,16 +114,18 @@ params:
     title: "About Me"
     #image: "/images/pfp.jpg"
     content: |-
-      I am software engineer at JustTrack working primarily with backend systems. I recnetly graduated from Manipal University with a bachelor's in Computer Science. 
-      I am interseted in large scale distributed systems and the design and trade-off that goes into building such systems. While writing code my focus is on efficiency, modularity, mantainablity and robustness of the code.
-      When I'm not coding I spend time playing/watching football, watching anime/movies or reading manga.
+      I am software engineer at JustTrack working primarily with asynchronous event driven microservices. I am interseted in large scale distributed systems and I love to learn about the design and trade-off that goes into building such systems. 
+      I am trying to learn more about systems and network programming. My aim is to write clean, modular and robust code to solve interesting business and tech problems.
+      Outside of work I enjoy football, working out and traveling.
     skills:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
       items:
         - "Golang"
+        - "Rust"
         - "Java"
         - "JavaScript"
+        - "TypeScript"
         - "Node"
         - "Spring"
         - "MySQL"
@@ -132,13 +134,14 @@ params:
         - "MongoDB"
         - "Kubernets"
         - "Docker"
+        - "Terraform"
         - "AWS (ECS, SQS/SNS, S3, etc)"
 
   # Experience
   experience:
     enable: true
     items:
-      - job: "Junior Software Engineer"
+      - job: "Software Engineer"
         company: "Justtrack"
         companyUrl: "https://justtrack.io/"
         date: "Oct 2022 - present"
@@ -147,10 +150,10 @@ params:
           name: "View the project"
           url: "https://example.com"
         content: |
-          - Developed an asynchronous microservice for resource creation and lookup that writes into a SQS every new entity it creates. Used redis and DynamoDB to process huge number to requests fast. Also developed a primary key decider along with a subscriber and a consumer that writes to a MySQL database to maintain consistency across the database and cache.
-          - Developed a cron server that performs scheduled ingestion of partner data and write it to a SNS topic where the data is consumed by lambda functions and written into a kinesis stream. Deployed this server to AWS Fargate.
-          - Responsible for maintaing and evolving some of the event driven systems with new requirements and parteners getting integrated into the system.
-          - Used golang for developing service and writing test. Made use of terraform to create infrastructure in the cloud. Used multiple AWS services like DynamoDB, SQS/SNS, S3 etc for creating data pipelines.
+          - Developed and maintained microservices and data pipelines for Justtrack's marketing automation and user acquisition platform using Golang, MySQL, DynamoDB, SQS/SNS and S3. Also used terraform for infrastructure creation and ECS for deployments.
+          - Designed and developed a scalable async microservice for efficient resource creation and lookup. Used Redis and DynamoDB, integrated with SQS for processing large number of requests fast and maintaining consistency.
+          - Implemented a concurrent cron server for ingesting spend data from various sources, added a helper service for mending the data and writing to SNS where it got consumed by lambda functions and written into a kinesis stream.
+          - Orchestrated seamless migration of legacy data to an updated format, ensuring minimal disruption of a high impact service during the switch.
 
       - job: "Software Engineer Intern"
         company: "Zscaler"
@@ -175,9 +178,9 @@ params:
         info:
           enable: true
         content: |
-          - Developed a microservice using Golang, Kubernetes and PostgreSQL for a fully managed PaaS that lets users automate DevOps and manage resources within AWS
-          - Designed and developed a solution that allows creation and deletion of cloud resources like cluster, nodegroups, S3 buckets, etc with a single click by making use of Terraform and Kubernetes Jobs
-          - Developed features like automated deployments and app installs by leveraging Kube client SDK and Helm SDK
+          - Developed a microservice using Golang, k8s API and PostgreSQL as a database for a fully managed PaaS that lets users automate DevOps and manage resources within AWS.
+          - Designed and implemented a solution facilitating the automated creation and deletion of diverse cloud resources, including clusters, node groups, and S3 buckets by Leveraging Terraform and Kubernetes Jobs.
+          - Contributed to the development of key features, including automated deployments and application installations, utilizing Kube client SDK and Helm SDK for streamlined processes.
 
       - job: "Software Developer Intern"
         company: "Quickwork"
@@ -210,7 +213,7 @@ params:
             - Database Management Systems
             - Computer Networks
             - Object Oriented Design
-            - Software Engineering 
+            - Distributed Systems
       
       - title: "High School"
         school:
@@ -245,12 +248,11 @@ params:
     enable: true
     items:
       - title: Keynetic
-        content: Developed a causally consistent, always available, and partition tolerant system. Consistent hashing distributes the requests to multiple shards. Within shards, gossip is used to spread requests
+        content: Developed a sharded causally consistent, always available, and partition tolerant key value store. The server can dynamically assign new nodes to shards, and re-shard the entire system. Causal Consistency is implemented using vector clocks.
         image: /images/project/mise.png
         # badges:
-        #   - "Hugo"
-        #   - "Bootstrap"
-        #   - "Javascript"
+        #   - "Golang"
+        #   - "Docker"
         links:
           - icon: fab fa-github
             url: https://github.com/NamanBalaji/keynetic

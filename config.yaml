@@ -132,7 +132,7 @@ params:
         - "PostgreSQL"
         - "DynamoDB"
         - "MongoDB"
-        - "Kubernets"
+        - "Kubernetes"
         - "Docker"
         - "Terraform"
         - "AWS (ECS, SQS/SNS, S3, etc)"

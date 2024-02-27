@@ -97,7 +97,7 @@ params:
     button:
       enable: true
       name: "Resume"
-      url: "other/BalajiNamanResume.pdf"
+      url: "BalajiNamanResume.pdf"
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github

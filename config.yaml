@@ -95,7 +95,7 @@ params:
     content: "I am a systems fanatic and I like Golang. I'm interested in building highly scalable and robust software systems. Currently learning more about Distributed Systems and design patterns. Trying to get better at problem-solving."
     image: /images/pfp.jpg
     button:
-      enable: true
+      enable: false
       name: "Resume"
       url: "BalajiNamanResume.pdf"
     socialLinks:
